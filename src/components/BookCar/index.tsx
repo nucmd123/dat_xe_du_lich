@@ -1,77 +1,89 @@
+import { useState } from 'react'
+import './bookcar.css'
 import {
     ArrowRightEndOnRectangleIcon,
     Bars3Icon,
-    ClockIcon,
     MapPinIcon,
     PhoneIcon,
     UserIcon,
-} from '@heroicons/react/24/outline'
-import React from 'react'
+} from '@heroicons/react/16/solid'
+import { ClockIcon } from '@heroicons/react/24/outline'
+
 function BookCar() {
+    const [bookcarDatetime, setBookcarDatetime] = useState<string>()
+
     return (
-        <form action="">
+        <form action="" className="w-full max-w-lg">
             <div className="bg-blue-500 px-2 py-4">
-                <div className="mb-3 grid grid-cols-3 items-center overflow-hidden rounded-lg focus-within:ring focus-within:ring-orange-300">
+                <div className="bookcar-input-wrapper">
                     <label
-                        htmlFor="diem-don"
-                        className="flex h-full items-center gap-1 bg-orange-500 pl-2 text-white"
+                        htmlFor="pickup-location"
+                        className="bookcar-input-label"
                     >
-                        <span className="flex items-center">
+                        <span className="bookcar-input-label-icon">
                             <MapPinIcon className="size-5" />
                         </span>
                         Điểm đón
                     </label>
                     <input
-                        id="diem-don"
+                        id="pickup-location"
                         type="text"
                         placeholder="Chọn điểm đón"
-                        className="col-span-2 border-none p-2 outline-none"
+                        className="bookcar-input-box"
                     />
                 </div>
-                <div className="mb-3 grid grid-cols-3 items-center overflow-hidden rounded-lg focus-within:ring focus-within:ring-orange-300">
+
+                <div className="bookcar-input-wrapper">
                     <label
-                        htmlFor="diem-den"
-                        className="flex h-full items-center gap-1 bg-orange-500 pl-2 text-white"
+                        htmlFor="drop-off-location"
+                        className="bookcar-input-label"
                     >
-                        <span className="flex items-center">
+                        <span className="bookcar-input-label-icon">
                             <MapPinIcon className="size-5" />
                         </span>
                         Điểm đến
                     </label>
                     <input
-                        id="diem-den"
+                        id="drop-off-location"
                         type="text"
                         placeholder="Chọn điểm đến"
-                        className="col-span-2 border-none p-2 outline-none"
+                        className="bookcar-input-box"
                     />
                 </div>
+
                 <div className="mb-3 grid grid-cols-2">
-                    <div className="flex items-center gap-1">
+                    <div className="bookcar-form-group-checkbox-wrapper">
                         <input
-                            id="hai-chieu"
+                            id="round-trip-booking"
                             type="checkbox"
-                            className="size-5 rounded text-white accent-orange-200 focus:accent-orange-200"
+                            className="bookcar-form-group-checkbox"
                         />
-                        <label htmlFor="hai-chieu" className="text-white">
+                        <label
+                            htmlFor="round-trip-booking"
+                            className="bookcar-form-group-checkbox-label"
+                        >
                             Hai chiều
                         </label>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="bookcar-form-group-checkbox-wrapper">
                         <input
                             id="vat"
                             type="checkbox"
-                            className="size-5 rounded text-white accent-orange-200 focus:accent-orange-200"
+                            className="bookcar-form-group-checkbox"
                         />
-                        <label htmlFor="vat" className="text-white">
+                        <label
+                            htmlFor="vat"
+                            className="bookcar-form-group-checkbox-label"
+                        >
                             Vat 10%
                         </label>
                     </div>
                 </div>
-                <div className="mb-3 h-[2px] w-full rounded-full bg-blue-800"></div>
-                <div className="mb-3 grid grid-cols-3 items-center overflow-hidden rounded-lg focus-within:ring focus-within:ring-orange-300">
+
+                <div className="bookcar-input-wrapper">
                     <label
-                        htmlFor="loai-xe"
-                        className="flex h-full items-center gap-1 bg-orange-500 pl-2 text-white"
+                        htmlFor="vehicle-type"
+                        className="bookcar-input-label"
                     >
                         <span className="flex items-center">
                             <Bars3Icon className="size-5" />
@@ -80,7 +92,7 @@ function BookCar() {
                     </label>
                     <select
                         name=""
-                        id="loai-xe"
+                        id="vehicle-type"
                         className="col-span-2 p-2 text-xl"
                     >
                         <option value="" className="text-base">
@@ -91,27 +103,26 @@ function BookCar() {
                         </option>
                     </select>
                 </div>
-                <div className="mb-3 grid grid-cols-3 items-center overflow-hidden rounded-lg focus-within:ring focus-within:ring-orange-300">
-                    <label
-                        htmlFor="ho-ten"
-                        className="flex h-full items-center gap-1 bg-orange-500 pl-2 text-white"
-                    >
+
+                <div className="bookcar-input-wrapper">
+                    <label htmlFor="username" className="bookcar-input-label">
                         <span className="flex items-center">
                             <UserIcon className="size-5" />
                         </span>
                         Họ và tên
                     </label>
                     <input
-                        id="ho-ten"
+                        id="username"
                         type="text"
                         placeholder="Nhập vào họ tên của bạn"
-                        className="col-span-2 border-none p-2 outline-none"
+                        className="bookcar-input-box"
                     />
                 </div>
-                <div className="mb-3 grid grid-cols-3 items-center overflow-hidden rounded-lg focus-within:ring focus-within:ring-orange-300">
+
+                <div className="bookcar-input-wrapper">
                     <label
-                        htmlFor="so-dien-thoai"
-                        className="flex h-full items-center gap-1 bg-orange-500 pl-2 text-white"
+                        htmlFor="phone-number"
+                        className="bookcar-input-label"
                     >
                         <span className="flex items-center">
                             <PhoneIcon className="size-5" />
@@ -119,34 +130,52 @@ function BookCar() {
                         Số điện thoại
                     </label>
                     <input
-                        id="so-dien-thoai"
+                        id="phone-number"
                         type="text"
                         placeholder="Nhập vào số điện thoạt của bạn"
-                        className="col-span-2 border-none p-2 outline-none"
+                        className="bookcar-input-box"
                     />
                 </div>
-                <div className="mb-3">
-                    <input type="date" placeholder="đón" />
-                </div>
-                <div className="relative mb-3 grid grid-cols-3 items-center overflow-hidden rounded-lg focus-within:ring focus-within:ring-orange-300">
+
+                <div className="mb-3 flex flex-col">
+                    <label
+                        htmlFor="datetime-picker"
+                        className="text-base text-white"
+                    >
+                        Chọn thời gian đón
+                    </label>
                     <input
-                        id="thoi-gian-cho"
-                        type="text"
-                        placeholder="Thời gian chờ"
-                        className="col-span-3 border-none p-2 pr-9 outline-none"
+                        id="datetime-picker"
+                        type="datetime-local"
+                        my-date-format="DD/MM/YYYY, hh:mm:ss"
+                        className="rounded-lg border-none p-2 outline-none focus:ring focus:ring-orange-300"
+                        onClick={(e) => {
+                            const target = e.target as HTMLInputElement
+                            target.showPicker()
+                        }}
+                        onChange={(e) => setBookcarDatetime(e.target.value)}
                     />
-                    <span className="absolute right-0 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <ClockIcon className="size-5" />
-                    </span>
                 </div>
-                <button
-                    type="submit"
-                    className="flex w-full items-center justify-center gap-1 rounded-lg bg-orange-500 py-2 text-white"
-                >
-                    Đặt xe
+
+                <div className="mb-3 flex overflow-hidden rounded-lg focus-within:ring focus-within:ring-orange-300">
+                    <input
+                        id="waiting-time"
+                        type="text"
+                        placeholder="Thời gian tài xế chờ, được tính bằng phút. VD: 30 phút, ..."
+                        className="flex-grow border-none p-2 outline-none"
+                    />
+                    <label htmlFor="waiting-time">
+                        <span className="flex h-full items-center bg-white p-2">
+                            <ClockIcon className="size-5" />
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" className="bookcar-form-submit-btn">
                     <span>
                         <ArrowRightEndOnRectangleIcon className="size-5" />
                     </span>
+                    Đặt xe
                 </button>
             </div>
         </form>

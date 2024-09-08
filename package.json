@@ -16,9 +16,12 @@
     },
     "dependencies": {
         "@heroicons/react": "^2.1.5",
+        "dayjs": "^1.11.13",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "react-router-dom": "^6.26.1"
+        "react-router-dom": "^6.26.1",
+        "react-tailwindcss-datepicker": "^1.7.2",
+        "swiper": "^11.1.12"
     },
     "devDependencies": {
         "@eslint/js": "^9.9.0",
